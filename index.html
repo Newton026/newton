@@ -996,6 +996,15 @@
             box-shadow: 0 18px 46px rgba(167, 139, 250, 0.24);
         }
 
+        /* Secondary CTA (Code): same visual weight as .btn-primary but a shifted
+           hue, so Paper and Code read as siblings instead of duplicates. */
+        .btn-accent {
+            border: 0;
+            background: linear-gradient(135deg, #9eeaff, #a9b4ff 52%, #e4d9ff);
+            color: #090910;
+            box-shadow: 0 18px 46px rgba(110, 231, 255, 0.24);
+        }
+
         .btn-outline {
             border-color: var(--border);
             background: rgba(255, 255, 255, 0.065);
@@ -1004,6 +1013,7 @@
         }
 
         .btn-primary:hover,
+        .btn-accent:hover,
         .btn-outline:hover {
             transform: translateY(-3px) scale(1.02);
             box-shadow: var(--shadow-hover);
@@ -1504,7 +1514,7 @@
                 <a href="https://arxiv.org/abs/2605.18396" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     Paper (arXiv)
                 </a>
-                <a href="https://github.com/CUTEPKQ/NEWTON" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                <a href="https://github.com/CUTEPKQ/NEWTON" target="_blank" rel="noopener noreferrer" class="btn btn-accent">
                     Code
                 </a>
                 <a href="#citation" class="btn btn-outline">
