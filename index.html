@@ -4,26 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEWTON — Agentic Planning for Physically Grounded Video Generation</title>
-    <meta name="description" content="Newton is a trainable agentic system that orchestrates plan–execute–verify cycles to make video generators obey physics.">
+    <meta name="description" content="NEWTON is a trainable agentic system that orchestrates plan–execute–verify cycles to make video generators obey physics. On VideoPhy-2 it lifts joint accuracy from 21.4% to 29.7% on LTX-Video and 30.7% to 37.4% on Veo-3.1, without modifying either generator.">
+    <meta name="keywords" content="agentic video generation, physics video generation, physically grounded video generation, LLM agent, tool-augmented reasoning, Flow-GRPO, VideoPhy-2, text-to-video, world model, multi-turn planning">
+    <link rel="canonical" href="https://newton026.github.io/newton/">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/figures/logo.png">
     <link rel="apple-touch-icon" href="assets/figures/logo.png">
 
     <!-- Open Graph (Facebook, WeChat, Slack, LinkedIn, etc.) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://Newton026.github.io/newton/">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://newton026.github.io/newton/">
+    <meta property="og:site_name" content="NEWTON">
     <meta property="og:title" content="NEWTON — Agentic Planning for Physically Grounded Video Generation">
-    <meta property="og:description" content="A trainable agentic system that orchestrates plan–execute–verify cycles to make video generators obey physics.">
-    <meta property="og:image" content="https://Newton026.github.io/newton/assets/figures/logo.png">
+    <meta property="og:description" content="A trainable agentic system that orchestrates plan–execute–verify cycles to make video generators obey physics. VideoPhy-2 joint accuracy: 21.4% → 29.7% (LTX-Video), 30.7% → 37.4% (Veo-3.1).">
+    <!-- TODO: replace with a 1200x630 social card (<200KB). A 1024x1024 logo gets
+         side-cropped by X/Twitter's summary_large_image and tanks click-through. -->
+    <meta property="og:image" content="https://newton026.github.io/newton/assets/figures/logo.png">
+    <meta property="og:image:alt" content="NEWTON: agentic planning for physically grounded video generation">
     <meta property="og:image:width" content="1024">
     <meta property="og:image:height" content="1024">
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NEWTON — Agentic Planning for Physically Grounded Video Generation">
-    <meta name="twitter:description" content="A trainable agentic system that orchestrates plan–execute–verify cycles to make video generators obey physics.">
-    <meta name="twitter:image" content="https://Newton026.github.io/newton/assets/figures/logo.png">
+    <meta name="twitter:description" content="A trainable agentic system that orchestrates plan–execute–verify cycles to make video generators obey physics. VideoPhy-2 joint accuracy: 21.4% → 29.7% (LTX-Video), 30.7% → 37.4% (Veo-3.1).">
+    <meta name="twitter:image" content="https://newton026.github.io/newton/assets/figures/logo.png">
+
+    <!-- Google Scholar / academic indexers -->
+    <meta name="citation_title" content="NEWTON: Agentic Planning for Physically Grounded Video Generation">
+    <meta name="citation_author" content="Feng, Yuxiang">
+    <meta name="citation_author" content="Wang, Juncheng">
+    <meta name="citation_author" content="Xu, Chao">
+    <meta name="citation_author" content="Qian, Yijie">
+    <meta name="citation_author" content="Wang, Huihan">
+    <meta name="citation_author" content="Hou, Wenlong">
+    <meta name="citation_author" content="Liu, Yang">
+    <meta name="citation_author" content="Sun, Baigui">
+    <meta name="citation_author" content="Liu, Yong">
+    <meta name="citation_author" content="Wang, Shujun">
+    <meta name="citation_publication_date" content="2026/05/18">
+    <meta name="citation_online_date" content="2026/05/18">
+    <meta name="citation_arxiv_id" content="2605.18396">
+    <meta name="citation_technical_report_institution" content="arXiv">
+    <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2605.18396">
+    <meta name="citation_abstract_html_url" content="https://arxiv.org/abs/2605.18396">
+
+    <!-- Structured data: ScholarlyArticle.
+         `sameAs` is the load-bearing part — it tells Google / Scholar / AI search
+         engines that this page, the arXiv entry, the HF paper page and the GitHub
+         repo are one entity, instead of four unrelated documents. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "@id": "https://arxiv.org/abs/2605.18396",
+      "name": "NEWTON: Agentic Planning for Physically Grounded Video Generation",
+      "headline": "NEWTON: Agentic Planning for Physically Grounded Video Generation",
+      "alternateName": "Neural Agentic World-Aware Tool-Orchestrated Navigation",
+      "abstract": "Video generation models produce visually compelling results but systematically violate physical commonsense -- on VideoPhy-2, the best model achieves only 32.6% joint accuracy. We identify a specification bottleneck: text prompts are lossy compression of the physical world, omitting the parameters that fully determine dynamics, and no amount of model scaling can recover what was never specified. From this diagnosis we derive three properties that physics conditioning must satisfy -- sufficiency, dynamism, and verifiability -- and show that no existing approach satisfies all three. We present NEWTON, in which video generation is demoted from the system output to one action inside an agent's toolbox: a learned planner orchestrates physics-aware tools (keyframe generation, scientific computation, prompt refinement) to construct rich conditioning, and a verifier closes the loop for iterative re-planning. The planner is the sole trainable component, optimized on-policy via Flow-GRPO inside the live multi-turn loop. On VideoPhy-2, NEWTON improves joint accuracy from 21.4% to 29.7% on LTX-Video and from 30.7% to 37.4% on Veo-3.1, without modifying either generator.",
+      "inLanguage": "en",
+      "datePublished": "2026-05-18",
+      "url": "https://newton026.github.io/newton/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://newton026.github.io/newton/"
+      },
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "arXiv",
+          "value": "arXiv:2605.18396",
+          "url": "https://arxiv.org/abs/2605.18396"
+        }
+      ],
+      "author": [
+        { "@type": "Person", "name": "Yuxiang Feng",  "affiliation": { "@type": "Organization", "name": "Zhejiang University" } },
+        { "@type": "Person", "name": "Juncheng Wang", "affiliation": { "@type": "Organization", "name": "The Hong Kong Polytechnic University" } },
+        { "@type": "Person", "name": "Chao Xu",       "affiliation": { "@type": "Organization", "name": "IROOTECH Technology, Sany Group" } },
+        { "@type": "Person", "name": "Yijie Qian",    "affiliation": { "@type": "Organization", "name": "Zhejiang University" } },
+        { "@type": "Person", "name": "Huihan Wang",   "affiliation": { "@type": "Organization", "name": "The Hong Kong Polytechnic University" } },
+        { "@type": "Person", "name": "Wenlong Hou",   "affiliation": { "@type": "Organization", "name": "The Hong Kong Polytechnic University" } },
+        { "@type": "Person", "name": "Yang Liu",      "affiliation": { "@type": "Organization", "name": "IROOTECH Technology, Sany Group" } },
+        { "@type": "Person", "name": "Baigui Sun",    "affiliation": { "@type": "Organization", "name": "IROOTECH Technology, Sany Group" } },
+        { "@type": "Person", "name": "Yong Liu",      "affiliation": { "@type": "Organization", "name": "Zhejiang University" } },
+        { "@type": "Person", "name": "Shujun Wang",   "affiliation": { "@type": "Organization", "name": "The Hong Kong Polytechnic University" } }
+      ],
+      "keywords": "agentic video generation, physics video generation, physically grounded video generation, LLM agent, tool-augmented reasoning, Flow-GRPO, VideoPhy-2, text-to-video, multi-turn planning, plan-execute-verify",
+      "about": [
+        { "@type": "Thing", "name": "Agentic video generation" },
+        { "@type": "Thing", "name": "Physics-grounded video generation" },
+        { "@type": "Thing", "name": "Tool-augmented LLM agents" },
+        { "@type": "Thing", "name": "Reinforcement learning for generative models" }
+      ],
+      "codeRepository": "https://github.com/CUTEPKQ/NEWTON",
+      "license": "https://opensource.org/licenses/MIT",
+      "image": "https://newton026.github.io/newton/assets/figures/pipeline.jpg",
+      "sameAs": [
+        "https://arxiv.org/abs/2605.18396",
+        "https://arxiv.org/pdf/2605.18396",
+        "https://huggingface.co/papers/2605.18396",
+        "https://github.com/CUTEPKQ/NEWTON",
+        "https://www.alphaxiv.org/abs/2605.18396"
+      ]
+    }
+    </script>
+
+    <!-- Breadcrumb: gives Google an explicit paper -> project-page relationship. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "arXiv:2605.18396", "item": "https://arxiv.org/abs/2605.18396" },
+        { "@type": "ListItem", "position": 2, "name": "NEWTON — Project Page", "item": "https://newton026.github.io/newton/" }
+      ]
+    }
+    </script>
+
+    <!-- VideoObject for the teaser. DISABLED until two things exist:
+           1. assets/figures/teaser_thumb.jpg  (Google requires a real thumbnailUrl;
+              shipping a 404 here makes the whole block fail validation)
+           2. the YouTube ID, if you move the 11.5MB teaser off GitHub Pages
+         Create the thumbnail with:
+           ffmpeg -i assets/teaser/teaser.mp4 -ss 2 -vframes 1 -q:v 3 assets/figures/teaser_thumb.jpg
+         Then delete these comment markers. If you stay self-hosted, drop `embedUrl`
+         and keep `contentUrl` pointing at the .mp4 — that is still valid.
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "NEWTON: Agentic Planning for Physically Grounded Video Generation",
+      "description": "NEWTON's plan-execute-verify loop producing physically grounded video, compared side-by-side against LTX-Video, HunyuanVideo and Wan2.2.",
+      "thumbnailUrl": "https://newton026.github.io/newton/assets/figures/teaser_thumb.jpg",
+      "uploadDate": "2026-05-18",
+      "contentUrl": "https://newton026.github.io/newton/assets/teaser/teaser.mp4",
+      "embedUrl": "https://www.youtube.com/embed/YOUR_VIDEO_ID",
+      "isPartOf": { "@id": "https://arxiv.org/abs/2605.18396" }
+    }
+    </script>
+    -->
 
     <style>
         /* --- VARIABLES & THEME --- */
